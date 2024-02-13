@@ -69,6 +69,10 @@ window.onload = function () {
     resetButton.addEventListener('click', function(){
         restartGame();
     });
+
+    // high score
+    highestScoreElement = document.getElementById('highestScore');
+
 }
 
 function update(){
@@ -115,6 +119,7 @@ function update(){
     //game over
     if (gameOver){
         gameOverDisplay.style.display = 'block';
+        highestScoreElement.innerHTML = Math.max(score, highestScoreElement.innerHTML);
     }
 }
 
