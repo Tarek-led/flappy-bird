@@ -8,7 +8,7 @@ let context;
 let birdwidth = 34;
 let birdheight = 24;
 let birdX = boardWidth/8;
-let birdY = boardHeight/2;
+let birdY = boardHeight/4;
 
 let birdImg;
 
@@ -30,8 +30,8 @@ let topPipeImg;
 let bottomPipeImg;
 
 let velocityX = -2; // pipe movement
-let velocityY = 0; // bird jump 
-let gravity = 0.4;
+let velocityY = -6; // bird jump 
+let gravity = 0.1;
 
 let gameOver = false;
 let score = 0;
@@ -84,6 +84,7 @@ function update(){
 
     //bird
     velocityY += gravity;
+    velocityY = Math.min(velocityY + gravity, 10);
     bird.y = Math.max(bird.y + velocityY, 0);
     context.drawImage(birdImg, bird.x, bird.y, bird.width, bird.height);
 
